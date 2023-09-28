@@ -1,3 +1,5 @@
+package com.javatest;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -10,9 +12,10 @@ public class MyNativeModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void addTwoNumbers(int a, int b, Promise promise) {
+    public void addTwoNumbers(String x, String y, Promise promise) {
+        int a=Integer.parseInt(x),b=Integer.parseInt(y);
         int result = a + b;
-        promise.resolve(result);
+        promise.resolve(Integer.toString(result));
     }
 
     @Override

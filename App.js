@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, StyleSheet, Text, View, NativeModules } from 'react-native';
+import { Button, StyleSheet, Text, View, NativeModules, Alert } from 'react-native';
 
 
 export default function App() {
   const [result, setResult] = React.useState(0);
   const addTwoNumbers = async () => {
     const nativeModule = NativeModules.MyNativeModule;
-    const result = await nativeModule.addTwoNumbers(1, 2);
+    const result = await nativeModule?.addTwoNumbers("5","1");
     setResult(result);
+    Alert.alert(result);
   };
   return (
     <View style={styles.container}>
